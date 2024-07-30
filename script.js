@@ -1,4 +1,3 @@
-
 function mnav(open) {
     console.log("open");
     if (open == 'open') {
