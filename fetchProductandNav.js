@@ -61,5 +61,5 @@ if(localStorage.getItem('auth')!=='true'){
 
 function Logout(){
     localStorage.clear();
-    window.location.reload();
+    window.history.back();
 }
