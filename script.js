@@ -8,8 +8,5 @@ function mnav(open) {
     }
 }
 
-window.mnav = (state) => {
-    mnav(state)
-};
 
 
