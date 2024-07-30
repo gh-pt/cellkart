@@ -103,10 +103,6 @@
         </div>
     </div>
     <script src="script.js"></script>
-    <script src="./fetchProductandNav.js"></script>
-    <script>
-        navfetch()
-    </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
         const urlParams = new URLSearchParams(window.location.search);
@@ -123,10 +119,8 @@
             document.querySelector('.title').textContent = product.name;
             document.querySelector('.selling').textContent = product.selling;
             document.querySelector('.cutting').textContent = product.cutting;
-        // ... and so on for other details
     }
         });
-
 });
 
     </script>

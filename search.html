@@ -154,8 +154,7 @@
                         ele.id = index;
                         return ele;
                     })
-
-                    console.log(newData);
+                    
                     let products = newData;
 
                     $("#search-input").on("input", function () {
@@ -186,7 +185,6 @@
 
                                 $(".suggestion-item").on("click", function () {
                                     let productId = $(this).data('id');
-
                                     window.location.href = `Desc.html?productId=${productId}`;
                                 });
                             } else {
@@ -210,11 +208,7 @@
             });
         });
     </script>
-    <script src="fetchProductandNav.js"></script>
     <script src="script.js"></script>
-    <script>
-        fetchProducts();
-    </script>
 </body>
 
 </html>
