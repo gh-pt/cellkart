@@ -1,12 +1,3 @@
-import doc from '../assets/doc.js';
-
-function ahref(link) {
-    window.location.href = link;
-}
-
-window.ahref = (link) => {
-    ahref(link)
-};
 
 function mnav(open) {
     console.log("open");
