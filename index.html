@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CellKart | Home</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="home">
+        <div class="container-l">
+            <div class="nav">
+                <div class="logo">
+                    <a href="/">
+                        <img src="logo.png" alt="" />
+                    </a>
+                </div>
+
+                <ul class="navList">
+                    <!-- Elements added using js -->
+                </ul>
+
+                <div class="btns-r">
+                    <span class="search-btn" onclick="ahref('./search.html')">
+                        <img src="assets/search.png"alt="" />
+                    </span>
+                    <span class="sell-btn login-btn"></span>
+                    <span class="search-btn menu" onclick="mnav('open')">
+                        <img src="https://img.icons8.com/?size=50&id=120374&format=png" alt="menu-bar" />
+                    </span>
+                </div>
+            </div>
+
+            <div class="banner">
+                <div class="img">
+                    <img src="assets/banner.png" alt="" />
+                </div>
+                <div class="text">
+                    <h1>A better way to upgrade your device</h1>
+                    <p>Get a premium phone at a fraction of the cost</p>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="salemsgbox">
+                    <p>Upto 10% off at resonable cost</p>
+                    <div class="btn">explore</div>
+                </div>
+            </div>
+
+            <div class="container-l">
+                <p class="sub-heading">Featured product</p>
+            </div>
+
+            <div class="container-l v1">
+                <div class="product-box" id="product"></div>
+            </div>
+
+            <div class="container-l">
+                <div class="page-heading">
+                    <div class="text">brands</div>
+                </div>
+                <div class="brands-box">
+                    <span><img src="assets/brand/apple.png" alt="" /></span>
+                    <span><img src="assets/brand/mi.png" alt="" /></span>
+                    <span><img src="assets/brand/oneplus.png" alt="" /></span>
+                    <span><img src="assets/brand/oppo.png" alt="" /></span>
+                    <span><img src="assets/brand/samsung.png" alt="" /></span>
+                    <span><img src="assets/brand/vivo.png" alt="" /></span>
+                </div>
+            </div>
+
+            <div class="container-l">
+                <p class="sub-heading">Top search</p>
+
+                <div class="top-search">
+                    <div class="salemsgbox">
+                        <p>iphone 14</p>
+                        <div class="btn">
+                            <img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/256/external-right-arrow-arrows-dreamstale-lineal-dreamstale-2.png"
+                                alt="" />
+                        </div>
+                    </div>
+                    <div class="salemsgbox">
+                        <p>samsumg s23</p>
+                        <div class="btn">
+                            <img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/256/external-right-arrow-arrows-dreamstale-lineal-dreamstale-2.png"
+                                alt="" />
+                        </div>
+                    </div>
+                    <div class="salemsgbox">
+                        <p>oneplus nord</p>
+                        <div class="btn">
+                            <img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/256/external-right-arrow-arrows-dreamstale-lineal-dreamstale-2.png"
+                                alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container-l">
+            <div class="box" id="about">
+                <p>About</p>
+                <div class="small-text">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime quo
+                    nulla explicabo accusantium. Quaerat, quos!
+                </div>
+            </div>
+
+            <div class="box" id="contact">
+                <div class="f-list">
+                    <ul>
+                        <b>Solutions</b>
+                        <li><a href="">brands</a></li>
+                        <li><a href="">sell your phone</a></li>
+                        <li><a href="">privacy</a></li>
+                        <li><a href="">terms and condition</a></li>
+                        <li><a href="">enquiry</a></li>
+                    </ul>
+                    <ul>
+                        <b>Partners</b>
+                        <li><a href="">Apple</a></li>
+                        <li><a href="">Samsung</a></li>
+                    </ul>
+                    <ul>
+                        <b>contact</b>
+                        <li><a href="mainto:email@gmai.com">email@gmai.com</a></li>
+                        <li><a href="">call us</a></li>
+                    </ul>
+                    <ul class="social">
+                        <b>social</b>
+                        <div class="s-box">
+                            <li>
+                                <a href=""><img src="https://img.icons8.com/material/1x/instagram-new.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="https://img.icons8.com/material/1x/facebook-new.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="https://img.icons8.com/material/1x/youtube.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="https://img.icons8.com/material/1x/whatsapp--v6.png" alt="" /></a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+
+                <div class="last">
+                    &copy
+                    <script>
+                        document.write(/\d{4}/.exec(Date())[0]);
+                    </script>
+                    all rights reserved
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js" type="module"></script>
+    <script src="./fetchProductandNav.js"></script>
+    <script>
+        fetchProducts();
+    </script>
+</body>
+
+</html>

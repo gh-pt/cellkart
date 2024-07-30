@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="search.css">
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .search-suggestions {
+            box-sizing: border-box;
+            background-color: #ffffff;
+            left: 0;
+            top: 40px; /* Adjusted to align properly under the search input */
+            z-index: 1000;
+            width: 100%;
+            height: fit-content;
+            display: none;
+        }
+
+        .suggestion-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .suggestion-item img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .suggestion-info p {
+            margin: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="home">
+        <div class="container-l">
+            <div class="nav">
+                <div class="logo">
+                    <a href="/">
+                        <img src="logo.png" alt="Logo" />
+                    </a>
+                </div>
+                <ul class="navList">
+                    <!-- Elements added using js -->
+                </ul>
+                <div class="btns-r">
+                    <span class="search-btn" onclick="window.location.href='./search.html'">
+                        <img src="assets/search.png" alt="Search" />
+                    </span>
+                    <span class="sell-btn login-btn"><a href="./login.html">Login</a></span>
+                    <span class="search-btn menu" onclick="mnav('open')">
+                        <img src="https://img.icons8.com/?size=50&id=120374&format=png" alt="Menu" />
+                    </span>
+                </div>
+            </div>
+
+            <div class="search">
+                <div class="box">
+                    <img src="assets/search.png" alt="Search Icon">
+                    <input type="text" id="search-input" placeholder="Search">
+                </div>
+            </div>
+
+            <div id="search-suggestions" class="search-suggestions"></div>
+
+            <p class="sub-heading">Search for <span>Phone</span></p>
+
+            <div class="container-l v1">
+                <div class="product-box">
+                    <!-- Elements added using js -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container-l">
+            <div class="box">
+                <p>About</p>
+                <div class="small-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime quo nulla
+                    explicabo accusantium. Quaerat, quos!
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="f-list">
+                    <ul>
+                        <b>Solutions</b>
+                        <li><a href="#">Brands</a></li>
+                        <li><a href="#">Sell Your Phone</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms and Conditions</a></li>
+                        <li><a href="#">Enquiry</a></li>
+                    </ul>
+                    <ul>
+                        <b>Partners</b>
+                        <li><a href="#">Zestlark</a></li>
+                        <li><a href="#">Verix</a></li>
+                    </ul>
+                    <ul>
+                        <b>Contact</b>
+                        <li><a href="mailto:email@gmai.com">email@gmai.com</a></li>
+                        <li><a href="#">Call Us</a></li>
+                    </ul>
+                    <ul class="social">
+                        <b>Social</b>
+                        <div class="s-box">
+                            <li><a href="#"><img src="https://img.icons8.com/material/1x/instagram-new.png"
+                                        alt="Instagram"></a></li>
+                            <li><a href="#"><img src="https://img.icons8.com/material/1x/facebook-new.png"
+                                        alt="Facebook"></a></li>
+                            <li><a href="#"><img src="https://img.icons8.com/material/1x/youtube.png" alt="YouTube"></a>
+                            </li>
+                            <li><a href="#"><img src="https://img.icons8.com/material/1x/whatsapp--v6.png"
+                                        alt="WhatsApp"></a></li>
+                        </div>
+                    </ul>
+                </div>
+
+                <div class="last">
+                    &copy;
+                    <script>document.write(new Date().getFullYear())</script>
+                    All rights reserved
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            // Fetch products from products.json
+            $.ajax({
+                url: './products.json',
+                method: 'GET',
+                dataType: 'json',
+                success: function (data) {
+
+                    const newData= data.map((ele,index)=>{
+                        ele.id = index;
+                        return ele;
+                    })
+
+                    console.log(newData);
+                    let products = newData;
+
+                    $("#search-input").on("input", function () {
+                        let query = $(this).val().toLowerCase();
+                        let $suggestions = $("#search-suggestions");
+                        $suggestions.empty();
+
+                        if (query.length > 1) {
+                            let filteredProducts = products.filter(product =>
+                                product.name.toLowerCase().includes(query) ||
+                                product.brand.toLowerCase().includes(query)
+                            );
+
+                            if (filteredProducts.length > 0) {
+                                $suggestions.show();
+                                filteredProducts.forEach((product,index) => {
+                                    let suggestionHtml = `
+                                        <div class="suggestion-item" data-id="${product.id}">
+                                            <img src="${product.img}" alt="${product.name}" />
+                                            <div class="suggestion-info">
+                                                <p><strong>${product.brand}</strong> - ${product.name}</p>
+                                                <p>${product.selling}</p>
+                                            </div>
+                                        </div>
+                                    `;
+                                    $suggestions.append(suggestionHtml);
+                                });
+
+                                $(".suggestion-item").on("click", function () {
+                                    let productId = $(this).data('id');
+
+                                    window.location.href = `Desc.html?productId=${productId}`;
+                                });
+                            } else {
+                                $suggestions.hide();
+                            }
+                        } else {
+                            $suggestions.hide();
+                        }
+                    });
+
+                    // Hide suggestions when clicking outside
+                    $(document).on("click", function (e) {
+                        if (!$(e.target).closest("#search-suggestions, #search-input").length) {
+                            $("#search-suggestions").hide();
+                        }
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error fetching products:", error);
+                }
+            });
+        });
+    </script>
+    <script src="fetchProductandNav.js"></script>
+    <script src="script.js" type="module"></script>
+    <script>
+        fetchProducts();
+    </script>
+</body>
+
+</html>

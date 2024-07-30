@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body class="signup login">
+    <div class="nav" id="nav"></div>
+
+    <div class="card">
+        <form id="form">
+            <h1>Signup</h1>
+            <p>
+                Thank you for choosing our website, and we look forward to serving you
+            </p>
+
+            <br />
+            <label for="username">Username</label>
+            <input id="username" type="text" placeholder="Username" />
+
+            <br />
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="Email" />
+
+            <br />
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="Password" />
+
+            <div id="error" style="color: red; margin-top: 10px"></div>
+            <button type="submit">Submit</button>
+
+            <p class="centerMessage">
+                Already have an account? <a href="./login.html">Login</a>
+            </p>
+        </form>
+        <div class="img">
+            <img src="https://images.unsplash.com/photo-1582721691120-d1db3852893e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGFic3RyYWN0JTIwd2F2ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60"
+                alt="" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#form").on("submit", function (e) {
+                e.preventDefault();
+
+                let username = $("#username").val();
+                let email = $("#email").val();
+                let password = $("#password").val();
+                let $errorElement = $("#error");
+
+                $errorElement.html("");
+
+                let isUsernameValid = validateUsername(username, $errorElement);
+                let isEmailValid = validateEmail(email, $errorElement);
+                let isPasswordValid = validatePassword(password, $errorElement);
+
+                if (isUsernameValid && isEmailValid && isPasswordValid) {
+                    alert("Signup successful!");
+                }
+            });
+
+            function validateUsername(username, $errorElement) {
+                if (username.length < 3) {
+                    $errorElement.append("Username must be at least 3 characters long.<br>");
+                    return false;
+                }
+                return true;
+            }
+
+            function validateEmail(email, $errorElement) {
+                const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                if (!emailPattern.test(email)) {
+                    $errorElement.append("Please enter a valid email address.<br>");
+                    return false;
+                }
+                return true;
+            }
+
+            function validatePassword(password, $errorElement) {
+                if (password.length < 6) {
+                    $errorElement.append("Password must be at least 6 characters long.<br>");
+                    return false;
+                }
+                return true;
+            }
+        });
+    </script>
+</body>
+
+</html>

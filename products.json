@@ -1,0 +1,58 @@
+[
+    {
+        "img": "product/p1.png",
+        "brand": "Oppo",
+        "name": "Oppo A9",
+        "selling": "$190",
+        "cutting": "$210"
+    },
+    {
+        "img": "product/p2.png",
+        "brand": "Redmi",
+        "name": "Redmi Note 10 Max Pro",
+        "selling": "$200",
+        "cutting": "$220"
+    },
+    {
+        "img": "product/p3.png",
+        "brand": "Oppo",
+        "name": "Oppo A9 2020",
+        "selling": "$220",
+        "cutting": "$240"
+    },
+    {
+        "img": "product/p4.png",
+        "brand": "Redmi",
+        "name": "Redmi Note 7 pro",
+        "selling": "$170",
+        "cutting": "$200"
+    },
+    {
+        "img": "product/p1.png",
+        "brand": "Oppo",
+        "name": "Oppo A9",
+        "selling": "$140",
+        "cutting": "$160"
+    },
+    {
+        "img": "product/p2.png",
+        "brand": "Redmi",
+        "name": "Redmi Note 10 Max Pro",
+        "selling": "$200",
+        "cutting": "$240"
+    },
+    {
+        "img": "product/p3.png",
+        "brand": "Oppo",
+        "name": "Oppo A9 2020",
+        "selling": "$190",
+        "cutting": "$210"
+    },
+    {
+        "img": "product/p4.png",
+        "brand": "Redmi",
+        "name": "Redmi Note 7 pro",
+        "selling": "$140",
+        "cutting": "$180"
+    }
+]
